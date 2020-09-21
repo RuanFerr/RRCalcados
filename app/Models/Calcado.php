@@ -8,6 +8,7 @@ class Calcado extends Model {
 
     protected $table = "calcado";
     protected $primaryKey = "id";
+    protected $allowedFields = ['descricao', 'id_categoria', 'preco', 'qtde'];
 
     #Campos:
     #descricao
@@ -19,11 +20,11 @@ class Calcado extends Model {
         if ($id == null) {
             return $this->findAll();
         }
-        return $this->asArray()->where(['id' => id])->first();
+        return $this->asArray()->where(['id' => $id])->first();
     }
 
-    public function remove($id = null){}
-    
-    
-    
+    public function remove($id = null) {
+        
+    }
+
 }

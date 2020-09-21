@@ -4,10 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Calcado extends Model {
+class Categoria extends Model {
 
     protected $table = "categoria";
     protected $primaryKey = "id";
+    protected $allowedFields = ['descricao'];
     #Campos:
     #descricao
     public function Search($id = null) {
