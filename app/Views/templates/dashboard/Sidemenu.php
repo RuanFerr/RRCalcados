@@ -21,16 +21,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('dashboard/cadastroCalcado'); ?>">
                             <span data-feather="file"></span>
-                            Cadastrar
+                            Cadastrar calçado
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('dashboard/searchCalcado'); ?>">
                             <span data-feather="search"></span>
-                            Buscar
+                            Buscar calçado
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url('dashboard/cadastroCategoria'); ?>">
+                            <span data-feather="file"></span>
+                            Cadastrar categoria
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url('dashboard/searchCategoria'); ?>">
+                            <span data-feather="search"></span>
+                            Buscar categoria
+                        </a>
+                    </li>
                 </ul>
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

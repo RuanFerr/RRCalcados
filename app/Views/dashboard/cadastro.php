@@ -9,6 +9,7 @@ $calcado_item = [
     "qtde" => '',
     "preco" => '',
     "id_categoria" => '',
+    "img" => ''
 ];
 if (isset($calcado)) :
     $calcado_item = $calcado;
@@ -27,21 +28,26 @@ endif;
             <div class="form-group">
                 <label for="descricao">Descrição </label>
                 <input type="text" class="form-control" name="descricao" id="descricao"
-                       value="<?php echo $calcado_item["descricao"]; ?>">
+                       value="<?php echo $calcado_item["descricao"]; ?>" required="">
             </div>
             <div class="form-group">
                 <label for="qtde">Quantidade </label>
                 <input type="number" class="form-control" name="qtde" id="qtde"
-                       value="<?php echo $calcado_item["qtde"]; ?>">
+                       value="<?php echo $calcado_item["qtde"]; ?>" required="">
             </div>
             <div class="form-group">
                 <label for="preco">Preço </label>
-                <input type="number" class="form-control" name="preco" id="preco"
-                       value="<?php echo $calcado_item["preco"]; ?>">
+                <input type="text" class="form-control" name="preco" id="preco"
+                       value="<?php echo $calcado_item["preco"]; ?>" required="">
             </div>
             <div class="form-group">
                 <input type="hidden" class="form-control" name="id_categoria" id="id_categoria" 
                        value="<?php echo $calcado_item["id_categoria"]; ?>">
+            </div>
+            <div class="form-group">
+                <label> Selecionar imagem</label>
+                <input id="uploadImg" type="file" accept="image/png, image/jpeg">
+                <img id="img" style="width: 500px">
             </div>
             <?php if (isset($calcado_item['id'])) : ?>
                 <div>
@@ -55,3 +61,9 @@ endif;
         </div>
     </form>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+</script>
