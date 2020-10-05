@@ -6,9 +6,9 @@ class Home extends BaseController {
 
     public function index() {
 
-        return view('marketplace/header');
-        return view('marketplace/main_menu');
-        return view('marketplace/footer');
+        echo view('marketplace/header');
+        echo view('marketplace/main_menu');
+        echo view('marketplace/footer');
     }
 
     //--------------------------------------------------------------------
