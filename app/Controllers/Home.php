@@ -4,11 +4,22 @@ namespace App\Controllers;
 
 class Home extends BaseController {
 
-    public function index() {
+    //controller para acessar as telas do marketplace
 
-        echo view('marketplace/header');
-        echo view('marketplace/main_menu');
-        echo view('marketplace/footer');
+    public function index() {
+        echo view("marketplace/header");
+        echo view("loja/Index");
+        echo view("marketplace/footer");
+    }
+
+    public function catalogo() {
+
+        echo view("loja/catalogo");
+    }
+
+    public function login() {
+
+        echo view("loja/Login");
     }
 
     //--------------------------------------------------------------------
