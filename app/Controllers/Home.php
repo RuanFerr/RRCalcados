@@ -18,8 +18,11 @@ class Home extends BaseController {
     }
 
     public function login() {
-
+        
+        echo view("marketplace/header");
         echo view("loja/Login");
+        echo view("marketplace/footer");
+        
     }
 
     //--------------------------------------------------------------------

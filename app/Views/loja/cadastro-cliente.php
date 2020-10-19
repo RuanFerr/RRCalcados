@@ -73,7 +73,12 @@
         </section>
         <!-- Fim de Banner de Fundo -->
 
-
+        <!-- Possivel mensagem de erro aqui -->
+        <div class="container danger">
+            <?php echo \config\services::validation()->listErrors() ?>
+        </div>
+        <!-- Fim da mensagem de erro -->
+        
         <!--Começo Formulário de cadastro-->
         <div class="cadastro">
             <div class="row">
@@ -86,39 +91,40 @@
                         </div>
 
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="nome" name="nome">
-                            <span class="placeholder" data-placeholder="Nome"></span>
+                            <input type="text" class="form-control" id="nome" name="nome" required="true">
+                            <span class="placeholder" data-placeholder=""></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="sobrenome" name="sobrenome">
+                            <input type="text" class="form-control" id="sobrenome" name="sobrenome" required="true">
                             <span class="placeholder" data-placeholder="Sobrenome"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="cpf" name="cpf">
+                            <input type="text" class="form-control" id="cpf" name="cpf"  required="true">
                             <span class="placeholder" data-placeholder="CPF"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="data_nasc" name="data_nasc">
+                            <input type="text" class="form-control" id="data_nasc" name="data_nasc" required="true">
                             <span class="placeholder" data-placeholder="Data de Nascimento"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="telefone" name="telefone">
+                            <input type="text" class="form-control" id="telefone" name="telefone" required="true">
                             <span class="placeholder" data-placeholder="Telefone"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="email">
+                            <input type="text" class="form-control" id="email" name="email" required="true">
                             <span class="placeholder" data-placeholder="Endereço de email"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="password" class="form-control" id="senha" name="senha">
+                            <input type="password" class="form-control" id="senha" name="senha" required="true">
                             <span class="placeholder" data-placeholder="senha"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="endereco" name="endereco">
+                            <input type="text" class="form-control" id="endereco" name="endereco" required="true">
                             <span class="placeholder" data-placeholder="Endereço"></span>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Complemento">
+                            <input type="text" class="form-control" id="complemento" name="complemento" 
+                                   placeholder="Complemento">
                         </div>
                         <div class="col-md-6 form-group p_star">
                             <select class="country_select" id="pais" name="pais">
@@ -133,11 +139,11 @@
                             </select>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="cidade" name="cidade">
+                            <input type="text" class="form-control" id="cidade" name="cidade" required="true">
                             <span class="placeholder" data-placeholder="Cidade"></span>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
+                            <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" required="true">
                         </div>
                         <div class="creat_account">
                             <input type="checkbox" id="f-option4" name="selector">

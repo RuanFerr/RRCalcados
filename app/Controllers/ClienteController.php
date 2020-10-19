@@ -21,7 +21,7 @@ class ClienteController extends Controller {
         
         helper('form');
         $clienteModel = new Cliente();
-        
+        $email = $this->request->getVar('email');
         //regras a serem cumpridas para inserir no banco
         $rules = [
             'nome' => 'required|min_length[2]|max_length[40]',
@@ -44,12 +44,13 @@ class ClienteController extends Controller {
 
             $clienteModel->save([
                 'id' => $this->request->getVar('id'),
+                'nome' => $this->request->getVar('nome'),
                 'sobrenome' => $this->request->getVar('sobrenome'),
                 'cpf' => $this->request->getVar('cpf'),
                 'data_nasc' => $this->request->getVar('data_nasc'),
                 'telefone' => $this->request->getVar('telefone'),
                 'email' => $this->request->getVar('email'),
-                'senha' => $this->request->getVar('senha'),
+                'senha' => md5($this->request->getVar('senha')),
                 'endereco' => $this->request->getVar('endereco'),
                 'complemento' => $this->request->getVar('complemento'),
                 'pais' => $this->request->getVar('pais'),
@@ -58,13 +59,12 @@ class ClienteController extends Controller {
                 'cep' => $this->request->getVar('cep')
             ]);
 
-            $data['sucess'] = "Sucesso";
-            echo view('marketplace/header');
-            echo view('loja/cadastro-cliente', $data);
-            echo view('marketplace/footer');
+            #tela de confirmação de email aqui; algoritmo ainda a ser desenvolvido
+            $this->enviarEmailConfirmacao($email);
+            
         } else {
             echo view('marketplace/header');
-            echo view('loja/index', $data);
+            echo view('loja/cadastro-cliente');
             echo view('marketplace/footer');
         }
     }
@@ -108,4 +108,18 @@ class ClienteController extends Controller {
         
     }
 
+    public function enviarEmailConfirmacao($email){
+        
+        
+        
+        #depois de enviar
+        $this->avisoConfirmacaoCadastro();
+    }
+    
+    public function avisoConfirmacaoCadastro(){
+        echo view("marketplace/header");
+        echo view("loja/aviso-confirmacao-cadastro");
+        echo view("marketplace/footer");
+    }
+    
 }
