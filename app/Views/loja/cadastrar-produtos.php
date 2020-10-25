@@ -1,10 +1,9 @@
-
 <!--Começo Menu de navegação-->
 <header class="header_area sticky-header">
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
-                <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+                <a class="navbar-brand logo_h" href="<?php echo base_url("dashboard/index") ?>"><img src="img/logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -13,7 +12,7 @@
                 </button>
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Pagina Inicial</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="<?php echo base_url("dashboard/index") ?>">Pagina Inicial</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">Loja</a>
@@ -150,104 +149,116 @@
                                                 <div class="single-product">
                                                     <div class="product-details">
                                                         <h3>Cadastrar Calçado </h3>
-                                                        <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                                                        <form class="row contact_form" action="<?php echo base_url("dashboard/saveCalcado"); ?>" method="post" novalidate="novalidate">
+
                                                             <div class="col-md-12 form-group p_star">
-                                                                <form>
-                                                                    <div class="form-group">
-                                                                        <br>
-                                                                        <a>Adicionar imagem </a>
-                                                                        <br>
-                                                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                                                                <div class="col-md-12 form-group p_star">
-                                                                    <input type="text" class="form-control" id="first" name="nomecalcado">
-                                                                    <span class="placeholder" data-placeholder="Nome do Calçado"></span>
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <input type="text" class="form-control" id="value" name="value" placeholder="valor">
-                                                                </div>
-                                                                <div class="col-md-6 form-group p_star">
-                                                                    <div class="sorting">
-                                                                        <select>
-                                                                            <option value="1">Status</option>
-                                                                            <option value="2">Em estoque </option>
-                                                                            <option value="3">Indisponivel</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 form-group p_star">
-                                                                    <div class="sorting">
-                                                                        <select>
-                                                                            <option value="1">Categoria</option>
-                                                                            <option value="2">Feminino </option>
-                                                                            <option value="3">Masculino</option>
-                                                                            <option value="3">Infantil</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 form-group p_star">
-                                                                    <input type="text" class="form-control" id="tamanho" name="tamanho">
-                                                                    <span class="placeholder" data-placeholder="tamanho"></span>
-                                                                </div>
-                                                                <div class="col-md-6 form-group p_star">
-                                                                    <input type="text" class="form-control" id="quantidade" name="quantidade">
-                                                                    <span class="placeholder" data-placeholder="quantidade"></span>
-                                                                </div>
-                                                                <div class="col-md-12 form-group p_star">
-                                                                    <input type="text" class="form-control" id="descricao" name="descrição">
-                                                                    <span class="placeholder" data-placeholder="Breve descrição"></span>
-                                                                </div>
-                                                                <br><br>
-                                                                <!--começo form descrição e especificação pag detalhes do produto -->
-                                                                <!--descrição-->
-                                                                <div class="col-md-12 form-group p_star">
-                                                                    <a>Descrição </a>
-                                                                    <div class="form-group">
-                                                                        <label for="exampleFormControlTextarea1">Escreva aqui uma descrição detalhada sobre o produto ofertado</label>
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                                    </div>
-                                                                </div>
-                                                                <!--especificação de produto-->
-                                                                <div class="col-md-12 form-group">
-                                                                    <a>Especificações </a>
-                                                                    <input type="text" class="form-control" id="largura" name="largura" placeholder="Largura">
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <input type="text" class="form-control" id="altura" name="altura" placeholder="Altura">
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <input type="text" class="form-control" id="profundidade" name="profundidade" placeholder="Profundidade">
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <input type="text" class="form-control" id="peso" name="peso" placeholder="Peso">
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <input type="text" class="form-control" id="qualidade" name="qualidade" placeholder="Qualidade">
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <input type="text" class="form-control" id="tempoduracao" name="tempoduracao" placeholder="Tempo de duração">
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <input type="text" class="form-control" id="tipoembalagem" name="tipoembalagem" placeholder="Tipo de embalagem">
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <input type="text" class="form-control" id="contem" name="contem" placeholder="Contém">
-                                                                </div>
-                                                                <!--fim form descrição e despecificações do produto pag detalhes do produto -->
-                                                                <div>
+
+                                                                <div class="form-group">
                                                                     <br>
-                                                                    <a class="primary-btn" href="aviso-confirmacao-cadastro.html">Casdastrar</a>
+                                                                    <a>Adicionar imagem </a>
+                                                                    <br>
+                                                                    <input required="true" type="file" class="form-control-file" accept="image/png, image/jpeg" name="imagem_calcado" id="imagem_calcado">
                                                                 </div>
-                                                            </form>
+
+                                                            </div>
+
+                                                            <div class="col-md-12 form-group p_star">
+                                                                <input required="true" type="text" class="form-control" id="nome" name="nome">
+                                                                <span class="placeholder" data-placeholder="Nome do Calçado"></span>
+                                                            </div>
+                                                            <div class="col-md-12 form-group">
+                                                                <input required="true" type="text" class="form-control" id="preco" name="preco" placeholder="valor">
+                                                            </div>
+                                                            <div class="col-md-6 form-group p_star">
+                                                                <div class="sorting">
+                                                                    <select name="status" id="status">
+                                                                        <option value="">Status</option>
+                                                                        <option value="em estoque">Em estoque </option>
+                                                                        <option value="indisponivel">Indisponivel</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 form-group p_star">
+                                                                <div class="sorting">
+                                                                    <select required="true" name="id_categoria" id="id_categoria">
+                                                                        <option value="">Categoria</option>
+
+                                                                        <!-- Inserindo opções de categorias a partir da busca feita pelo controller em controllers/cashboard: 32  -->
+                                                                        <?php if (!empty($categoria) && is_array($categoria)): ?>
+                                                                            <?php foreach ($categoria as $item): ?>
+                                                                                <option value="<?php echo $item['id']; ?>"><?php echo $item['descricao']; ?> </option>
+
+                                                                            <?php endforeach; ?>
+                                                                        <?php endif; ?>
+
+                                                                        <!--
+                                                                        <option value="1">Feminino </option>
+                                                                        <option value="2">Masculino</option>
+                                                                        <option value="3">Infantil</option>
+                                                                        -->
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 form-group p_star">
+                                                                <input required="true" type="text" class="form-control" id="tamanho" name="tamanho">
+                                                                <span class="placeholder" data-placeholder="tamanho"></span>
+                                                            </div>
+                                                            <div class="col-md-6 form-group p_star">
+                                                                <input required="true" type="text" class="form-control" id="qtde" name="qtde">
+                                                                <span class="placeholder" data-placeholder="quantidade"></span>
+                                                            </div>
+                                                            <div class="col-md-12 form-group p_star">
+                                                                <input required="true" type="text" class="form-control" id="breve_descricao" name="breve_descricao">
+                                                                <span class="placeholder" data-placeholder="Breve descrição"></span>
+                                                            </div>
+                                                            <br><br>
+                                                            <!--começo form descrição e especificação pag detalhes do produto -->
+                                                            <!--descrição-->
+                                                            <div class="col-md-12 form-group p_star">
+                                                                <a>Descrição </a>
+                                                                <div class="form-group">
+                                                                    <label for="exampleFormControlTextarea1">Escreva aqui uma descrição detalhada sobre o produto ofertado</label>
+                                                                    <textarea required="true" class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <!--especificação de produto-->
+                                                            <div class="col-md-12 form-group">
+                                                                <a>Especificações </a>
+                                                                <input required="true" type="text" class="form-control" id="largura" name="largura" placeholder="Largura">
+                                                            </div>
+                                                            <div class="col-md-12 form-group">
+                                                                <input required="true" type="text" class="form-control" id="altura" name="altura" placeholder="Altura">
+                                                            </div>
+                                                            <div class="col-md-12 form-group">
+                                                                <input required="true" type="text" class="form-control" id="profundidade" name="profundidade" placeholder="Profundidade">
+                                                            </div>
+                                                            <div class="col-md-12 form-group">
+                                                                <input required="true" type="text" class="form-control" id="peso" name="peso" placeholder="Peso">
+                                                            </div>
+                                                            <div class="col-md-12 form-group">
+                                                                <input required="true" type="text" class="form-control" id="qualidade" name="qualidade" placeholder="Qualidade">
+                                                            </div>
+                                                            <div class="col-md-12 form-group">
+                                                                <input required="true" type="text" class="form-control" id="tempo_duracao" name="tempo_duracao" placeholder="Tempo de duração">
+                                                            </div>
+                                                            <div class="col-md-12 form-group">
+                                                                <input required="true" type="text" class="form-control" id="tipo_embalagem" name="tipo_embalagem" placeholder="Tipo de embalagem">
+                                                            </div>
+                                                            <div class="col-md-12 form-group">
+                                                                <input required="true" type="text" class="form-control" id="contem" name="contem" placeholder="Contém">
+                                                            </div>
+                                                            <!--fim form descrição e despecificações do produto pag detalhes do produto -->
+                                                            <div>
+                                                                <br>
+                                                                <button type="submit" class="primary-btn" >Casdastrar</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                </div>
-                                </section>
+                                    </section><!--switch aqui-->
+                                </div> <!--switch aqui-->
                                 <!--fim form cadastro pag detalhes do produto-->
                                 </div>
                                 </div>

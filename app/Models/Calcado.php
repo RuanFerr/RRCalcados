@@ -8,9 +8,11 @@ class Calcado extends Model {
 
     protected $table = "calcado";
     protected $primaryKey = "id";
-    protected $allowedFields = ['descricao', 'id_categoria', 'preco', 'qtde'];
+    protected $allowedFields = ['nome', 'descricao', 'id_categoria', 'preco', 'qtde', 'status', 'breve_descricao', 
+        'largura', 'altura','profundidade', 'peso', 'qualidade', 'tempo_duracao', 'tipo_embalagem', 'contem'];
     
     #Campos:
+    #nome
     #descricao
     #preco
     #qtde

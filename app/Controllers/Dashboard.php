@@ -10,28 +10,45 @@ class Dashboard extends Controller {
 
     public function index() {
 
-        echo view('templates/header');
-        echo view('templates/dashboard/Sidemenu');
-        echo view('templates/footer');
+        echo view('marketplace/header');
+        echo view('loja/index');
+        echo view('marketplace/footer');
+        
     }
 
     # metodos para calçado se encontram aqui
+    # public function cadastroCalcado() {
+    #     $model = new Categoria();
+    #     $data = [
+    #         'categoria' => $model->search()
+    #     ];
+    #     helper('form');
+    #     echo view('templates/header');
+    #     echo view('templates/dashboard/Sidemenu');
+    #     echo view('dashboard/cadastro', $data);
+    #     echo view('templates/footer');
+    # }
 
     public function cadastroCalcado() {
-
         $model = new Categoria();
 
         $data = [
             'categoria' => $model->search()
         ];
-
         helper('form');
-        echo view('templates/header');
-        echo view('templates/dashboard/Sidemenu');
-        echo view('dashboard/cadastro', $data);
-        echo view('templates/footer');
+        echo view("marketplace/header");
+        echo view("loja/cadastrar-produtos", $data);
+        echo view("marketplace/footer");
     }
 
+    #para outra tela
+
+    public function gerenciarProdutos(){
+        echo view('marketplace/header');
+        echo view('loja/gerenciar-produtos');
+        echo view('marketplace/footer');
+    }
+    
     public function searchCalcado() {
         $model = new Calcado();
 
@@ -53,32 +70,52 @@ class Dashboard extends Controller {
         $listaCategorias = [
             'categoria' => $categoria->search()
         ];
-        
+
         $rules = [
             'descricao' => 'required|min_length[10]|max_length[100]',
             'preco' => 'required',
-            'qtde' => 'required'
+            'qtde' => 'required',
+            'id_categoria' => 'required',
+            'nome' => 'required|min_length[8]|max_length[50]',
+            'status' => 'required|max_length[15]',
+            'breve_descricao' => 'required|min_length[10]|max_length[60]',
+            'largura' => 'required',
+            'altura' => 'required',
+            'peso' => 'required',
+            'profundidade' => 'required',
+            'qualidade' => 'required|max_length[10]',
+            'tempo_duracao' => 'required|max_length[15]',
+            'tipo_embalagem' => 'required',
+            'contem' => 'required|max_length[100]'
         ];
-        
+
         if ($this->validate($rules)) {
 
             $calcadoModel->save([
                 'id' => $this->request->getVar('id'),
                 'descricao' => $this->request->getVar('descricao'),
+                'breve_descricao' => $this->request->getVar('breve_descricao'),
                 'preco' => $this->request->getVar('preco'),
-                'qtde' => $this->request->getVar('qtde')
+                'qtde' => $this->request->getVar('qtde'),
+                'id_categoria' => $this->request->getVar('id_categoria'),
+                'altura' => $this->request->getVar('altura'),
+                'largura' => $this->request->getVar('largura'),
+                'peso' => $this->request->getVar('peso'),
+                'profundidade' => $this->request->getVar('profundidade'),
+                'qualidade' => $this->request->getVar('qualidade'),
+                'tempo_duracao' => $this->request->getVar('tempo_duracao'),
+                'tipo_embalagem' => $this->request->getVar('tipo_embalagem'),
+                'contem' => $this->request->getVar('contem')
             ]);
-
-            $data['sucess'] = "Sucesso";
-            echo view('templates/header');
-            echo view('templates/dashboard/Sidemenu');
-            echo view('dashboard/cadastro', $data, $listaCategorias);
-            echo view('templates/footer');
+            
+            echo view('marketplace/header');
+            echo view('loja/cadastrar-produtos', $listaCategorias);
+            echo view('marketplace/footer');
+            echo view('templates/dashboard/ModalAlertCadastroConcluido');
+            
         } else {
-            echo view('templates/header');
-            echo view('templates/dashboard/Sidemenu');
-            echo view('dashboard/cadastro', $listaCategorias);
-            echo view('templates/footer');
+            $this->cadastroCalcado();
+            echo view('templates/dashboard/ModalAlertCadastroerro');
         }
     }
 
@@ -92,7 +129,7 @@ class Dashboard extends Controller {
         $listaCategorias = [
             'categoria' => $categoria->search()
         ];
-        
+
         echo view('templates/header');
         echo view('templates/dashboard/Sidemenu');
         echo view('dashboard/cadastro', $data, $listaCategorias);
