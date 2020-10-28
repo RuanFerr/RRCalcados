@@ -44,4 +44,11 @@ class Cliente extends Model {
         }
         return $this->asArray()->where(['email' => $email])->first();
     }
+    
+    public function login($email, $senha){
+        
+        return $this->asArray()->where(['email' => $email, 'senha' => $senha]);
+        
+    }
+    
 }

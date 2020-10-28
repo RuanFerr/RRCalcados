@@ -43,6 +43,31 @@ class Dashboard extends Controller {
 
     #para outra tela
 
+    public function envios(){
+        
+        echo view('marketplace/header');
+        echo view('loja/envios-adm');
+        echo view('marketplace/footer');
+        
+    }
+    
+    public function buscarProdutos(){
+        helper('form');
+        
+        $db = db_connect();
+        
+        $builder = $db->table('calcado c');
+        
+        $termo = "%".$this->request->getVar('')."%";
+
+        $query = $builder->where(['nome' => $termo]);
+        
+        echo view('marketplace/header');
+        echo view('loja/listar-buscar-calcado-adm');
+        echo view('marketplace/footer');
+        
+    }
+    
     public function gerenciarProdutos(){
         echo view('marketplace/header');
         echo view('loja/gerenciar-produtos');
