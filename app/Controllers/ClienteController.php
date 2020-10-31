@@ -56,7 +56,8 @@ class ClienteController extends Controller {
                 'pais' => $this->request->getVar('pais'),
                 'estado' => $this->request->getVar('estado'),
                 'cidade' => $this->request->getVar('cidade'),
-                'cep' => $this->request->getVar('cep')
+                'cep' => $this->request->getVar('cep'),
+                'tipo' => "cli"
             ]);
 
             #tela de confirmação de email aqui; algoritmo ainda a ser desenvolvido

@@ -18,18 +18,27 @@
                                aria-expanded="false">Loja</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="echo base_url('home/catalogo');">Catalogo</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/enderecoEnvio');?>">Endereços para envio</a></li> 
+                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/enderecoEnvio'); ?>">Endereços para envio</a></li> 
                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/sacola'); ?>">Sacola</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Registra-se/Login</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/login'); ?>">Login</a></li>
-                                <!-- <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li> -->
-                            </ul>
+                            <?php if (!session()->has('email')) { ?>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">Registra-se/Login</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/login'); ?>">Login</a></li>
+                                    <!-- <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li> -->
+                                </ul>
+                            <?php } else { ?>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false"> Conta </a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/logout'); ?>">Logout</a></li>
+                                    <!-- <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li> -->
+                                </ul>
+                            <?php } ?>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/contato'); ?>">Contato</a></li>
                     </ul>
@@ -77,7 +86,7 @@
                                 <br>
                                 <li>
                                     <img src="img/bootstrap-icons-1.0.0/truck.svg" alt="" width="32" height="32" title="Bootstrap">
-                                    <a href="envios-adm.html">Envios</a> 
+                                    <a href="<?php echo base_url('dashboard/enviosAdm'); ?>">Envios</a> 
                                 </li>
                                 <br>
                                 <li>
@@ -157,7 +166,7 @@
                                                                     <br>
                                                                     <a>Adicionar imagem </a>
                                                                     <br>
-                                                                    <input required="true" type="file" class="form-control-file" accept="image/png, image/jpeg" name="imagem_calcado" id="imagem_calcado">
+                                                                    <input required="true" type="file" class="form-control-file" accept="image/png, image/jpeg" name="imagem_calcado" id="imagem_calcado" size="50">
                                                                 </div>
 
                                                             </div>

@@ -44,10 +44,10 @@ class Cliente extends Model {
         }
         return $this->asArray()->where(['email' => $email])->first();
     }
-    
+    //metodo para buscar email e senha correspondentes
     public function login($email, $senha){
         
-        return $this->asArray()->where(['email' => $email, 'senha' => $senha]);
+        return $this->asArray()->where(['email' => $email, 'senha' => $senha])->first();
         
     }
     

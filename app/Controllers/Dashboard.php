@@ -13,10 +13,10 @@ class Dashboard extends Controller {
         echo view('marketplace/header');
         echo view('loja/index');
         echo view('marketplace/footer');
-        
     }
 
     # metodos para calçado se encontram aqui
+    # 
     # public function cadastroCalcado() {
     #     $model = new Categoria();
     #     $data = [
@@ -43,37 +43,37 @@ class Dashboard extends Controller {
 
     #para outra tela
 
-    public function envios(){
+    public function enviosAdm() {
+
+        
         
         echo view('marketplace/header');
         echo view('loja/envios-adm');
         echo view('marketplace/footer');
-        
     }
-    
-    public function buscarProdutos(){
+
+    public function buscarProdutos() {
         helper('form');
-        
+
         $db = db_connect();
-        
+
         $builder = $db->table('calcado c');
-        
-        $termo = "%".$this->request->getVar('')."%";
+
+        $termo = "%" . $this->request->getVar('') . "%";
 
         $query = $builder->where(['nome' => $termo]);
-        
+
         echo view('marketplace/header');
         echo view('loja/listar-buscar-calcado-adm');
         echo view('marketplace/footer');
-        
     }
-    
-    public function gerenciarProdutos(){
+
+    public function gerenciarProdutos() {
         echo view('marketplace/header');
         echo view('loja/gerenciar-produtos');
         echo view('marketplace/footer');
     }
-    
+
     public function searchCalcado() {
         $model = new Calcado();
 
@@ -116,28 +116,29 @@ class Dashboard extends Controller {
 
         if ($this->validate($rules)) {
 
-            $calcadoModel->save([
-                'id' => $this->request->getVar('id'),
-                'descricao' => $this->request->getVar('descricao'),
-                'breve_descricao' => $this->request->getVar('breve_descricao'),
-                'preco' => $this->request->getVar('preco'),
-                'qtde' => $this->request->getVar('qtde'),
-                'id_categoria' => $this->request->getVar('id_categoria'),
-                'altura' => $this->request->getVar('altura'),
-                'largura' => $this->request->getVar('largura'),
-                'peso' => $this->request->getVar('peso'),
-                'profundidade' => $this->request->getVar('profundidade'),
-                'qualidade' => $this->request->getVar('qualidade'),
-                'tempo_duracao' => $this->request->getVar('tempo_duracao'),
-                'tipo_embalagem' => $this->request->getVar('tipo_embalagem'),
-                'contem' => $this->request->getVar('contem')
-            ]);
-            
-            echo view('marketplace/header');
-            echo view('loja/cadastrar-produtos', $listaCategorias);
-            echo view('marketplace/footer');
-            echo view('templates/dashboard/ModalAlertCadastroConcluido');
-            
+        $calcadoModel->save([
+            'id' => $this->request->getVar('id'),
+            'descricao' => $this->request->getVar('descricao'),
+            'breve_descricao' => $this->request->getVar('breve_descricao'),
+            'preco' => $this->request->getVar('preco'),
+            'qtde' => $this->request->getVar('qtde'),
+            'id_categoria' => $this->request->getVar('id_categoria'),
+            'altura' => $this->request->getVar('altura'),
+            'largura' => $this->request->getVar('largura'),
+            'peso' => $this->request->getVar('peso'),
+            'profundidade' => $this->request->getVar('profundidade'),
+            'qualidade' => $this->request->getVar('qualidade'),
+            'tempo_duracao' => $this->request->getVar('tempo_duracao'),
+            'tipo_embalagem' => $this->request->getVar('tipo_embalagem'),
+            'contem' => $this->request->getVar('contem'),
+            'imagem_calcado' => $this->request->getFile('imagem_calcado')
+        ]);
+
+        echo view('marketplace/header');
+        echo view('loja/cadastrar-produtos', $listaCategorias);
+        echo view('marketplace/footer');
+        echo view('templates/dashboard/ModalAlertCadastroConcluido');
+        echo $this->request->getFile('imagem_calcado');
         } else {
             $this->cadastroCalcado();
             echo view('templates/dashboard/ModalAlertCadastroerro');
@@ -268,5 +269,5 @@ class Dashboard extends Controller {
         $this->searchCategoria();
         echo view('templates/dashboard/ModalAlertDeletado');
     }
-
+    
 }
