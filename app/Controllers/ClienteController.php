@@ -86,6 +86,8 @@ class ClienteController extends Controller {
 
     public function recuperarSenha($email) {
         
+        
+        
     }
 
     //metodos de telas
