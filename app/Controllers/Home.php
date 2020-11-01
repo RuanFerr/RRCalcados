@@ -10,7 +10,7 @@ class Home extends BaseController {
 
     public function index() {
         echo view('marketplace/header');
-        echo view('marketplace/sections/menuPrincipalSuperior');
+        echo view('templates/marketplace/sections/menuPrincipalSuperior');
         echo view('loja/index');
         echo view('marketplace/footer');
     }
