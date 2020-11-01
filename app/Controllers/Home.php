@@ -94,4 +94,14 @@ class Home extends BaseController {
         return redirect()->to(site_url('home'));
     }
 
+    #novo metodo para mostrar os produtos na Index
+    
+    public function queryProdutosCategoria($idCategoria){
+        
+        $db = \Config\Database::connect();
+        $builder = $db->table('calcado');
+        $query = $builder->limit(8, 10)->getWhere(['id_categoria' => $idCategoria]);
+        
+    }
+    
 }
