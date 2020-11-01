@@ -1,4 +1,3 @@
-
 <!--Começo Menu de navegação-->
 <header class="header_area sticky-header">
     <div class="main_menu">
@@ -25,7 +24,7 @@
                         </li>
 
                         <li class="nav-item submenu dropdown">
-                            <?php if (session()->has('nome')) { ?>
+                            <?php if (!session()->has('email')) { ?>
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                    aria-expanded="false">Registra-se/Login</a>
                                 <ul class="dropdown-menu">

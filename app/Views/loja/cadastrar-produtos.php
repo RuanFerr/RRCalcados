@@ -91,17 +91,17 @@
                                 <br>
                                 <li>
                                     <img src="img/bootstrap-icons-1.0.0/exclamation-square.svg" alt="" width="32" height="32" title="Bootstrap">
-                                    <a href="destques-semana.html">Destaques da semana</a>
+                                    <a href="<?php echo base_url('dashboard/destaquesAdm'); ?>">Destaques da semana</a>
                                 </li>
                                 <br>
                                 <li>
                                     <img src="img/bootstrap-icons-1.0.0/file-image.svg" alt="" width="32" height="32" title="Bootstrap">
-                                    <a href="criar-promocao.html">Criar promoção</a> 
+                                    <a href="<?php echo base_url('dashboard/criarPromocao'); ?>">Criar promoção</a> 
                                 </li>
                                 <br>
                                 <li>
                                     <img src="img/bootstrap-icons-1.0.0/cash-stack.svg" alt="" width="32" height="32" title="Bootstrap">
-                                    <a href="verificar-vendas.html">Verificar vendas do dia</a>
+                                    <a href="<?php echo base_url('dashboard/verificarVendas'); ?>">Verificar vendas do dia</a>
                                 </li>
                                 </li>	
                                 </li>
@@ -143,10 +143,10 @@
                                 <div class="col-xl-9 col-lg-8 col-md-7">
                                     <div class="filter-bar d-flex flex-wrap align-items-center">
                                         <div class="sorting">
-                                            <button  type="submit" value="submit" class="primary-btn"><a href="gerenciar-produtos.html">cadastrar</a></button>
+                                            <button  type="submit" value="submit" class="primary-btn"><a href="<?php echo base_url('dashboard/cadastroCalcado'); ?>">cadastrar</a></button>
                                         </div>
                                         <div class="sorting mr-auto">
-                                            <button type="submit" value="submit" class="primary-btn"><a href="listar-produtos-cadastrados.html">cadastrados</a></button>
+                                            <button type="submit" value="submit" class="primary-btn"><a href="<?php echo base_url('dashboard/listarCalcadosCadastrados'); ?>">cadastrados</a></button>
                                         </div>
                                     </div>
                                     <!-- fim menu gerênciar calçados -->
@@ -158,17 +158,10 @@
                                                 <div class="single-product">
                                                     <div class="product-details">
                                                         <h3>Cadastrar Calçado </h3>
-                                                        <form class="row contact_form" action="<?php echo base_url("dashboard/saveCalcado"); ?>" method="post" novalidate="novalidate">
-
+                                                        <form class="row contact_form" action="<?php echo base_url("dashboard/saveCalcado"); ?>" method="POST" enctype="multipart/form-data">
                                                             <div class="col-md-12 form-group p_star">
-
-                                                                <div class="form-group">
-                                                                    <br>
-                                                                    <a>Adicionar imagem </a>
-                                                                    <br>
-                                                                    <input required="true" type="file" class="form-control-file" accept="image/png, image/jpeg" name="imagem_calcado" id="imagem_calcado" size="50">
-                                                                </div>
-
+                                                                <br> <a>Adicionar imagem </a> <br>
+                                                                <input type="file" class="form-control-file" name="img">
                                                             </div>
 
                                                             <div class="col-md-12 form-group p_star">

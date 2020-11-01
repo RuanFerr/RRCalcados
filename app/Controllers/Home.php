@@ -9,9 +9,10 @@ class Home extends BaseController {
     //controller para acessar as telas do marketplace
 
     public function index() {
-        echo view("marketplace/header");
-        echo view("loja/Index");
-        echo view("marketplace/footer");
+        echo view('marketplace/header');
+        echo view('marketplace/sections/menuPrincipalSuperior');
+        echo view('loja/index');
+        echo view('marketplace/footer');
     }
 
     public function catalogo() {

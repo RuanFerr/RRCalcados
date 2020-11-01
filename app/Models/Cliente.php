@@ -16,7 +16,7 @@ class Cliente extends Model {
     protected $primaryKey = "id";
     protected $allowedFields = ['nome', 'sobrenome', 'cpf', 'data_nasc', 'telefone', 'email', 'senha',
         'endereco', 'complemento', 'pais', 'estado', 'cidade', 'cep'];
-
+    
     /**
      * nome
      * sobrenome
