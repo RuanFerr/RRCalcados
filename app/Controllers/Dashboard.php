@@ -200,6 +200,8 @@ class Dashboard extends Controller {
                     'descricao' => $this->request->getVar('descricao'),
                     'breve_descricao' => $this->request->getVar('breve_descricao'),
                     'preco' => $this->request->getVar('preco'),
+                    'status' => $this->request->getVar('status'),
+                    'tamanho' => $this->request->getVar('tamanho'),
                     'qtde' => $this->request->getVar('qtde'),
                     'id_categoria' => $this->request->getVar('id_categoria'),
                     'altura' => $this->request->getVar('altura'),

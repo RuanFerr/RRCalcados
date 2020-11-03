@@ -3,15 +3,21 @@
 namespace App\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Categoria;
 
 class Home extends BaseController {
 
     //controller para acessar as telas do marketplace
 
     public function index() {
+        
+        $categorias = new Categoria();
+        $data = [
+                'categorias' => $categorias->search()
+            ];
         echo view('marketplace/header');
         echo view('templates/marketplace/sections/menuPrincipalSuperior');
-        echo view('loja/index');
+        echo view('loja/index', $data);
         echo view('marketplace/footer');
     }
 
@@ -55,7 +61,7 @@ class Home extends BaseController {
 
         $termo = "%" . $this->request->getVar('') . "%";
 
-        $query = $builder->where(['nome' => $termo]);
+        $query = $builder->where(['nome' => $termo])->find();
 
         echo view('marketplace/header');
         echo view('loja/listar-buscar-calcado-adm', $query);
@@ -102,6 +108,10 @@ class Home extends BaseController {
         $builder = $db->table('calcado');
         $query = $builder->limit(8, 10)->getWhere(['id_categoria' => $idCategoria]);
         
+        return $query;
+        
     }
+    
+    
     
 }

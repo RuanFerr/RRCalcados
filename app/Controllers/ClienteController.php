@@ -15,10 +15,12 @@ namespace App\Controllers;
  */
 use CodeIgniter\Controller;
 use \App\Models\Cliente;
+use \App\Models\Sacola;
+
 class ClienteController extends Controller {
 
     public function save($id = null) {
-        
+
         helper('form');
         $clienteModel = new Cliente();
         $email = $this->request->getVar('email');
@@ -38,7 +40,7 @@ class ClienteController extends Controller {
             'cidade' => 'required|min_length[4]|max_length[25]',
             'cep' => 'required|min_length[8]|max_length[9]',
         ];
-        
+
         //se os campos estiverem de acordo com as regras, insere
         if ($this->validate($rules)) {
 
@@ -57,12 +59,11 @@ class ClienteController extends Controller {
                 'estado' => $this->request->getVar('estado'),
                 'cidade' => $this->request->getVar('cidade'),
                 'cep' => $this->request->getVar('cep'),
-                'tipo' => "cli"
+                'tipo' => 'cli'
             ]);
 
             #tela de confirmação de email aqui; algoritmo ainda a ser desenvolvido
             $this->enviarEmailConfirmacao($email);
-            
         } else {
             echo view('marketplace/header');
             echo view('loja/cadastro-cliente');
@@ -70,12 +71,12 @@ class ClienteController extends Controller {
         }
     }
 
-    public function validarEmail($email){
+    public function validarEmail($email) {
         $clientes = new Cliente();
         $listaClientes = $clientes->searchEmail($email);
         return !is_array($listaClientes);
     }
-    
+
     public function confirmacao($email) {
         
     }
@@ -86,17 +87,14 @@ class ClienteController extends Controller {
 
     public function recuperarSenha($email) {
         
-        
-        
     }
 
     //metodos de telas
     public function cadastro() {
-        
+
         echo view("marketplace/header");
         echo view("loja/cadastro-cliente");
         echo view("marketplace/footer");
-        
     }
 
     public function perfil() {
@@ -111,18 +109,83 @@ class ClienteController extends Controller {
         
     }
 
-    public function enviarEmailConfirmacao($email){
-        
-        
-        
+    public function enviarEmailConfirmacao($email) {
+
+
+
         #depois de enviar
         $this->avisoConfirmacaoCadastro();
     }
-    
-    public function avisoConfirmacaoCadastro(){
+
+    public function avisoConfirmacaoCadastro() {
+
         echo view("marketplace/header");
         echo view("loja/aviso-confirmacao-cadastro");
         echo view("marketplace/footer");
     }
-    
+
+    public function sacola() {
+
+        if ($this->clienteLogged()) {
+            echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('loja/sacola');
+            echo view('marketplace/footer');
+        } else {
+            redirect()->to(site_url('home/login'));
+        }
+    }
+
+    public function addSacola($idCalcado = null) {
+        if ($this->clienteLogged()) {
+            $calcadoModel = new \App\Models\Calcado();
+            $calcado = $calcadoModel->search($idCalcado);
+            $sacola = new Sacola();
+
+            $itens = $sacola->search(session()->get('id'));
+
+            if (!$this->atualizarSacola($itens, $idCalcado)) {
+                $sacola->save([
+                    'id_cliente' => session()->get('id'),
+                    'id_calcado' => $calcado['id'],
+                    'qtde' => 1,
+                    'tamanho_calcado' => $calcado['tamanho'],
+                    'desconto' => 0
+                ]);
+            }
+            $data = [
+                'calcados' => $sacola->search(session()->get('id'))
+            ];
+
+            echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('loja/sacola', $data);
+            echo view('marketplace/footer');
+
+            return redirect()->to(site_url('ClienteController/sacola'));
+        } else {
+            return redirect()->to(site_url('home/login'));
+        }
+    }
+
+    public function atualizarSacola($itens, $idCalcado) {
+        $sacola = new Sacola();
+        foreach ($itens as $itemSacola) {
+            if ($itemSacola['id_calcado'] == $idCalcado) {
+                $sacola->aumentarQuantidade($itemSacola['id_sacola'], ($itemSacola['qtde'] + 1));
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //metodo para testar se o cliente está logado
+    public function clienteLogged() {
+        if (!(session()->get('tipo') == 'cli')) {
+            redirect()->to(site_url('home/login'));
+            return false;
+        }
+        return true;
+    }
+
 }

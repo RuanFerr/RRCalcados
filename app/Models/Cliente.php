@@ -15,7 +15,7 @@ class Cliente extends Model {
     protected $table = "clientes";
     protected $primaryKey = "id";
     protected $allowedFields = ['nome', 'sobrenome', 'cpf', 'data_nasc', 'telefone', 'email', 'senha',
-        'endereco', 'complemento', 'pais', 'estado', 'cidade', 'cep'];
+        'endereco', 'complemento', 'pais', 'estado', 'cidade', 'cep', 'tipo'];
     
     /**
      * nome
@@ -30,6 +30,7 @@ class Cliente extends Model {
      * estado (limitado a ceara)
      * cidade
      * cep
+     * tipo
      * */
     
     public function search($id = null) {
