@@ -6,9 +6,9 @@
                 <div class="col-first">
                     <h1>Sacola de Compras</h1>
                     <nav class="d-flex align-items-center">
-                        <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-                        <a href="index.html">Loja</a>
-                        <a href="sacola.html">Sacola</a>
+                        <a href="<?php echo base_url(); ?>">Home<span class="lnr lnr-arrow-right"></span></a>
+                        <a href="">Loja</a>
+                        <a href="<?php echo base_url('ClienteController/sacola'); ?>">Sacola</a>
                         
                     </nav>
                 </div>
