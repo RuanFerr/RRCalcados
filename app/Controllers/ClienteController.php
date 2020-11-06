@@ -137,11 +137,18 @@ class ClienteController extends Controller {
         }
     }
 
-    public function addSacola($idCalcado = null) {
+    public function addSacola($idCalcado = null, $qtde = null) {
         if ($this->clienteLogged()) {
             $calcadoModel = new \App\Models\Calcado();
             $calcado = $calcadoModel->search($idCalcado);
             $sacola = new Sacola();
+            $qtd;
+
+            if ($qtde == null) {
+                $qtd = 1;
+            } else {
+                $qtd = $qtde;
+            }
 
             $itens = $sacola->search(session()->get('id'));
 
@@ -149,7 +156,7 @@ class ClienteController extends Controller {
                 $sacola->save([
                     'id_cliente' => session()->get('id'),
                     'id_calcado' => $calcado['id'],
-                    'qtde' => 1,
+                    'qtde' => $qtd,
                     'tamanho_calcado' => $calcado['tamanho'],
                     'desconto' => 0
                 ]);
@@ -163,13 +170,12 @@ class ClienteController extends Controller {
             echo view('loja/sacola', $data);
             echo view('marketplace/footer');
 
-            return redirect()->to(site_url('ClienteController/sacola'));
         } else {
             return redirect()->to(site_url('home/login'));
         }
     }
 
-    public function atualizarSacola($itens, $idCalcado) {
+    public function atualizarSacola($itens = null, $idCalcado = null, $qtde = null) {
         $sacola = new Sacola();
         foreach ($itens as $itemSacola) {
             if ($itemSacola['id_calcado'] == $idCalcado) {
@@ -178,6 +184,22 @@ class ClienteController extends Controller {
             }
         }
         return false;
+    }
+
+    public function addSacolaQtde() {
+
+        helper('form');
+
+        if ($this->clienteLogged()) {
+
+            $idProduto = $this->request->getVar('idProduto');
+            $qtde = $this->request->getVar('qtde');
+
+            $this->addSacola($idProduto, $qtde);
+            
+        } else {
+            return redirect()->to(site_url('home/login'));
+        }
     }
 
     //metodo para testar se o cliente está logado

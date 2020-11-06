@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Cliente;
 use App\Models\Categoria;
+use App\Models\Calcado;
 
 class Home extends BaseController {
 
@@ -18,6 +19,7 @@ class Home extends BaseController {
         echo view('marketplace/header');
         echo view('templates/marketplace/sections/menuPrincipalSuperior');
         echo view('loja/index', $data);
+        echo view('templates/marketplace/sections/destaquesSemana');
         echo view('marketplace/footer');
     }
 
@@ -97,6 +99,19 @@ class Home extends BaseController {
                 return redirect()->to(site_url('home'));
             }
         }
+    }
+
+    public function produto($idCalcado = null) {
+        $modelCalcado = new Calcado();
+        $modelCategoria = new Categoria();
+
+        $data['calcado'] = $modelCalcado->search($idCalcado);
+        $data['categoria'] = $modelCategoria->search($data['calcado']['id_categoria']);
+
+        echo view("marketplace/header");
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
+        echo view("loja/detalhes-produto", $data);
+        echo view("marketplace/footer");
     }
 
     public function logout() {

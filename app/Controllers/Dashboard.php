@@ -39,6 +39,7 @@ class Dashboard extends Controller {
             ];
             helper('form');
             echo view("marketplace/header");
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
             echo view("loja/cadastrar-produtos", $data);
             echo view("marketplace/footer");
         } else {
@@ -164,7 +165,7 @@ class Dashboard extends Controller {
             $newName = $img->getRandomName();
 
             #fazendo o envio da imagem       
-            $img->store('/assets/img/product', $newName);
+            $img->move('public/img/product/', $newName);
 
             $calcadoModel = new Calcado();
             $categoria = new Categoria();
@@ -212,10 +213,11 @@ class Dashboard extends Controller {
                     'tempo_duracao' => $this->request->getVar('tempo_duracao'),
                     'tipo_embalagem' => $this->request->getVar('tipo_embalagem'),
                     'contem' => $this->request->getVar('contem'),
-                    'url_img' => $img->getTempName() . $newName
+                    'url_img' => 'public/img/product/' . $newName
                 ]);
 
                 echo view('marketplace/header');
+                echo view('templates/marketplace/sections/menuPrincipalSuperior');
                 echo view('loja/cadastrar-produtos', $listaCategorias);
                 echo view('marketplace/footer');
                 echo view('templates/dashboard/ModalAlertCadastroConcluido');

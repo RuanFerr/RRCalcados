@@ -58,7 +58,7 @@ use App\Models\Calcado; ?>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-features">
                     <div class="f-icon">
-                        <img src="img/icones/f-icon1.png" alt="">
+                        <img src="<?php echo base_url('assets/img/icones/f-icon1.png');?>" alt="">
                     </div>
                     <h6>Frete</h6>
                     <p>Entregas para toda região do Cariri</p>
@@ -69,7 +69,7 @@ use App\Models\Calcado; ?>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-features">
                     <div class="f-icon">
-                        <img src="img/icones/f-icon3.png" alt="">
+                        <img src="<?php echo base_url('assets/img/icones/f-icon3.png');?>" alt="">
                     </div>
                     <h6>Atedimento 24 horas</h6>
                     <p>Atedimento ao clinete </p>
@@ -79,10 +79,10 @@ use App\Models\Calcado; ?>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-features">
                     <div class="f-icon">
-                        <img src="img/icones/f-icon4.png" alt="">
+                        <img src="<?php echo base_url('assets/img/icones/f-icon4.png');?>" alt="">
                     </div>
                     <h6>Segurança no pagamento</h6>
-                    <p>Todos os pagamentos são realizados de forma segurançae</p>
+                    <p>Todos os pagamentos são realizados de forma segura</p>
                 </div>
             </div>
         </div>
@@ -181,7 +181,7 @@ use App\Models\Calcado; ?>
                                 <!-- sidle de produtos -->
                                 <div class="col-lg-3 col-md-6">
                                     <div class="single-product">
-                                        <img class="img-fluid" src="img/product/p5.jpg" alt="">
+                                        <img class="img-fluid" src="<?php echo base_url($calcadoItem['url_img']); ?>" alt="">
                                         <div class="product-details">
                                             <h6><?php echo $calcadoItem['nome']; ?></h6>
                                             <div class="price">
@@ -195,7 +195,7 @@ use App\Models\Calcado; ?>
                                                     <p class="hover-text">sacola</p>
                                                 </a>
 
-                                                <a href="detalhes-produto.html" class="social-info">
+                                                <a href="<?php echo base_url('home/produto/'.$calcadoItem['id']); ?>" class="social-info">
                                                     <span class="lnr lnr-move"></span>
                                                     <p class="hover-text">veja mais</p>
                                                 </a>
@@ -214,139 +214,3 @@ use App\Models\Calcado; ?>
 
 <!-- Fim apresentação de produtos -->
 
-
-<!-- Começo Destaques da semana -->
-<section class="related-product-area section_gap_bottom">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 text-center">
-                <div class="section-title">
-                    <h1>Destaques da semana</h1>
-                    <p>Ofertas imperdiveis! Não perca.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r1.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 01</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r2.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 02</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r3.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 03</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r5.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 04</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r6.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 05</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r7.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 06</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r9.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 07</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r10.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 08</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-related-product d-flex">
-                            <a href="#"><img src="img/r11.jpg" alt=""></a>
-                            <div class="desc">
-                                <a href="#" class="title">Oferta 09</a>
-                                <div class="price">
-                                    <h6>$189.00</h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="ctg-right">
-                    <a href="#" target="_blank">
-                        <img class="img-fluid d-block mx-auto" src="img/category/c5.jpg" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Fim destaques da semana -->
