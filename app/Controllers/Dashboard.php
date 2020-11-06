@@ -41,7 +41,7 @@ class Dashboard extends Controller {
             echo view("marketplace/header");
             echo view("loja/cadastrar-produtos", $data);
             echo view("marketplace/footer");
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -55,7 +55,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/envios-adm');
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -75,7 +75,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/listar-buscar-calcado-adm');
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -85,7 +85,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/selecao-destques');
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -95,7 +95,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/listar-destaques');
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -105,7 +105,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/destques-semana');
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -115,7 +115,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/criar-promocao');
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -125,7 +125,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/verificar-vendas');
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -135,7 +135,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/gerenciar-produtos');
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -151,7 +151,7 @@ class Dashboard extends Controller {
             echo view('marketplace/header');
             echo view('loja/listar-produtos-cadastrados', $data);
             echo view('marketplace/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -223,7 +223,7 @@ class Dashboard extends Controller {
                 $this->cadastroCalcado();
                 echo view('templates/dashboard/ModalAlertCadastroerro');
             }
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -244,7 +244,7 @@ class Dashboard extends Controller {
             echo view('templates/dashboard/Sidemenu');
             echo view('dashboard/cadastro', $data, $listaCategorias);
             echo view('templates/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -279,7 +279,7 @@ class Dashboard extends Controller {
                 echo view('dashboard/cadastro');
                 echo view('templates/footer');
             }
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -290,7 +290,7 @@ class Dashboard extends Controller {
             $model->delete($id);
             $this->listarCalcadosCadastrados();
             echo view('templates/dashboard/ModalAlertDeletado');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -310,7 +310,7 @@ class Dashboard extends Controller {
             echo view('templates/dashboard/Sidemenu');
             echo view('dashboard/searchCategoria', $data);
             echo view('templates/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -324,7 +324,7 @@ class Dashboard extends Controller {
             echo view('templates/dashboard/Sidemenu');
             echo view('dashboard/CreateCategoria');
             echo view('templates/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -340,7 +340,7 @@ class Dashboard extends Controller {
             echo view('templates/dashboard/Sidemenu');
             echo view('dashboard/CreateCategoria', $data);
             echo view('templates/footer');
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }
@@ -369,7 +369,7 @@ class Dashboard extends Controller {
                 echo view('dashboard/CreateCategoria');
                 echo view('templates/footer');
             }
-        }else {
+        } else {
             return redirect()->to(site_url('home'));
         }
     }

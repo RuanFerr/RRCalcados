@@ -23,12 +23,13 @@ class ClienteController extends Controller {
 
         helper('form');
         $clienteModel = new Cliente();
+        echo view('templates/marketplace/sections/menuPrincipalSuperior');
         $email = $this->request->getVar('email');
         //regras a serem cumpridas para inserir no banco
         $rules = [
             'nome' => 'required|min_length[2]|max_length[40]',
             'sobrenome' => 'required|min_length[2]|max_length[40]',
-            'cpf' => 'required|min_length[11]|max_length[14]',
+            'cpf' => 'required|min_length[11]|max_length[14]|valid_cpf',
             'data_nasc' => 'required|min_length[8]|max_length[10]',
             'telefone' => 'required|min_length[8]|max_length[15]',
             'email' => 'required|min_length[8]|max_length[40]',

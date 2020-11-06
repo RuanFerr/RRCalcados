@@ -10,11 +10,11 @@ class Home extends BaseController {
     //controller para acessar as telas do marketplace
 
     public function index() {
-        
+
         $categorias = new Categoria();
         $data = [
-                'categorias' => $categorias->search()
-            ];
+            'categorias' => $categorias->search()
+        ];
         echo view('marketplace/header');
         echo view('templates/marketplace/sections/menuPrincipalSuperior');
         echo view('loja/index', $data);
@@ -23,32 +23,36 @@ class Home extends BaseController {
 
     public function catalogo() {
         echo view('marketplace/header');
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
         echo view("loja/catalogo");
         echo view("marketplace/footer");
     }
 
     public function login() {
-
         echo view("marketplace/header");
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
         echo view("loja/Login");
         echo view("marketplace/footer");
     }
 
     public function enderecoEnvio() {
         echo view("marketplace/header");
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
         echo view("loja/endereco-envio");
         echo view("marketplace/footer");
     }
 
     public function sacola() {
         echo view("marketplace/header");
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
         echo view("loja/sacola");
         echo view("marketplace/footer");
     }
 
     public function contato() {
         echo view("marketplace/header");
-        echo view("loja/sacola");
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
+        echo view("loja/contato");
         echo view("marketplace/footer");
     }
 
@@ -101,17 +105,14 @@ class Home extends BaseController {
     }
 
     #novo metodo para mostrar os produtos na Index
-    
-    public function queryProdutosCategoria($idCategoria){
-        
+
+    public function queryProdutosCategoria($idCategoria) {
+
         $db = \Config\Database::connect();
         $builder = $db->table('calcado');
         $query = $builder->limit(8, 10)->getWhere(['id_categoria' => $idCategoria]);
-        
+
         return $query;
-        
     }
-    
-    
-    
+
 }

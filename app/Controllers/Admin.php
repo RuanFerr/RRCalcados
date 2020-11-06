@@ -17,15 +17,15 @@ use App\Models\Categoria;
  *
  * @author ruan2
  */
-class Admin extends Controller{
+class Admin extends Controller {
     #codigo de telas aqui
-    
+
     public function index() {
 
         echo view('marketplace/header');
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
         echo view('loja/cadastrar-produtos');
         echo view('marketplace/footer');
-        
     }
 
     public function cadastroCalcado() {
@@ -38,11 +38,11 @@ class Admin extends Controller{
 
         helper('form');
         echo view('marketplace/header');
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
         echo view('loja/cadastrar-produtos', $data);
         echo view('marketplace/footer');
-        
     }
-    
+
     public function searchCalcado() {
         $model = new Calcado();
 
@@ -55,4 +55,12 @@ class Admin extends Controller{
         echo view('dashboard/searchCalcado', $data);
         echo view('templates/footer');
     }
+
+    public function ajuda() {
+        echo view('marketplace/header');
+        echo view("templates/marketplace/sections/menuPrincipalSuperior");
+        echo view('loja/ajuda');
+        echo view("marketplace/footer");
+    }
+
 }
