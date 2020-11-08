@@ -10,32 +10,32 @@
                                 class="lnr lnr-arrow-right"><a>Administrador</a>
                                 <br>
                                 <li>
-                                    <img src="img/bootstrap-icons-1.0.0/file-plus.svg" alt="" width="32" height="32" title="Bootstrap">
+                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/file-plus.svg'); ?>" alt="" width="32" height="32" title="Bootstrap">
                                     <a href="<?php echo base_url('dashboard/gerenciarProdutos'); ?>"> Gerênciar Produtos</a>
                                 </li>
                                 <br>
                                 <li>
-                                    <img src="img/bootstrap-icons-1.0.0/search.svg" alt="" width="32" height="32" title="Bootstrap">
+                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/search.svg'); ?>" alt="" width="32" height="32" title="Bootstrap">
                                     <a href="<?php echo base_url('dashboard/buscarProdutos'); ?>"> Buscar Produto </a>
                                 </li>
                                 <br>
                                 <li>
-                                    <img src="img/bootstrap-icons-1.0.0/truck.svg" alt="" width="32" height="32" title="Bootstrap">
+                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/truck.svg') ?>" alt="" width="32" height="32" title="Bootstrap">
                                     <a href="<?php echo base_url('dashboard/enviosAdm'); ?>">Envios</a> 
                                 </li>
                                 <br>
                                 <li>
-                                    <img src="img/bootstrap-icons-1.0.0/exclamation-square.svg" alt="" width="32" height="32" title="Bootstrap">
+                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/exclamation-square.svg'); ?>" alt="" width="32" height="32" title="Bootstrap">
                                     <a href="<?php echo base_url('dashboard/destaquesAdm'); ?>">Destaques da semana</a>
                                 </li>
                                 <br>
                                 <li>
-                                    <img src="img/bootstrap-icons-1.0.0/file-image.svg" alt="" width="32" height="32" title="Bootstrap">
+                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/file-image.svg'); ?>" alt="" width="32" height="32" title="Bootstrap">
                                     <a href="<?php echo base_url('dashboard/criarPromocao'); ?>">Criar promoção</a> 
                                 </li>
                                 <br>
                                 <li>
-                                    <img src="img/bootstrap-icons-1.0.0/cash-stack.svg" alt="" width="32" height="32" title="Bootstrap">
+                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/cash-stack.svg'); ?>" alt="" width="32" height="32" title="Bootstrap">
                                     <a href="<?php echo base_url('dashboard/verificarVendas'); ?>">Verificar vendas do dia</a>
                                 </li>
                                 </li>	
@@ -49,12 +49,12 @@
                                             <ul class="main-categories">
                                                 <br>
                                                 <li>
-                                                    <img src="img/bootstrap-icons-1.0.0/file-earmark-ruled.svg" alt="" width="32" height="32" title="Bootstrap">
+                                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/file-earmark-ruled.svg') ?>" alt="" width="32" height="32" title="Bootstrap">
                                                     <a href="relatorio-vendas-mes.html">Neste mês</a>
                                                 </li>
                                                 <br>
                                                 <li>
-                                                    <img src="img/bootstrap-icons-1.0.0/file-earmark-ruled.svg" alt="" width="32" height="32" title="Bootstrap">
+                                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/file-earmark-ruled.svg') ?>" alt="" width="32" height="32" title="Bootstrap">
                                                     <a href="relatorio-vendas-trimestre.html">Último trimestre</a> 
                                                 </li>
                                                 <br>

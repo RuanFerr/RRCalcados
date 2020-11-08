@@ -169,7 +169,6 @@ class ClienteController extends Controller {
             echo view('templates/marketplace/sections/menuPrincipalSuperior');
             echo view('loja/sacola', $data);
             echo view('marketplace/footer');
-
         } else {
             return redirect()->to(site_url('home/login'));
         }
@@ -196,7 +195,6 @@ class ClienteController extends Controller {
             $qtde = $this->request->getVar('qtde');
 
             $this->addSacola($idProduto, $qtde);
-            
         } else {
             return redirect()->to(site_url('home/login'));
         }
