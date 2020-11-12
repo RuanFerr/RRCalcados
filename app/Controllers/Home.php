@@ -24,6 +24,14 @@ class Home extends BaseController {
     }
 
     public function catalogo() {
+
+        $categoriaModel = new Categoria();
+        $calcadoModel = new Calcado();
+        $data = [
+            'categorias' => $categoriaModel->search(),
+            'calcados' => $calcadoModel->search()
+        ];
+
         echo view('marketplace/header');
         echo view("templates/marketplace/sections/menuPrincipalSuperior");
         echo view("loja/catalogo");

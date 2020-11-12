@@ -16,7 +16,7 @@
                                 <br>
                                 <li>
                                     <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/search.svg'); ?>" alt="" width="32" height="32" title="Bootstrap">
-                                    <a href="<?php echo base_url('dashboard/buscarProdutos'); ?>"> Buscar Produto </a>
+                                    <a href="<?php echo base_url('dashboard/listarCalcadosCadastrados'); ?>"> Buscar Produto </a>
                                 </li>
                                 <br>
                                 <li>
@@ -53,8 +53,10 @@
                                                     <a href="relatorio-vendas-mes.html">Neste mês</a>
                                                 </li>
                                                 <br>
+                                                <!--
+                                                outros tipos de relatorios
                                                 <li>
-                                                    <img src="<?php echo base_url('assets/img/bootstrap-icons-1.0.0/file-earmark-ruled.svg') ?>" alt="" width="32" height="32" title="Bootstrap">
+                                                    <img src="<?php# echo base_url('assets/img/bootstrap-icons-1.0.0/file-earmark-ruled.svg') ?>" alt="" width="32" height="32" title="Bootstrap">
                                                     <a href="relatorio-vendas-trimestre.html">Último trimestre</a> 
                                                 </li>
                                                 <br>
@@ -67,6 +69,7 @@
                                                     <img src="img/bootstrap-icons-1.0.0/file-earmark-ruled.svg" alt="" width="32" height="32" title="Bootstrap">
                                                     <a href="relatorio-vendas-final-ano.html">Vendas do final do ano </a> 
                                                 </li>
+                                                -->
                                             </ul>
                                         </form>
                                     </div>

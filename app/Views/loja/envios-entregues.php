@@ -13,7 +13,6 @@
                             <th scope="col">Valor total</th>
                             <th scope="col">Frete</th>
                             <th scope="col">Situação</th>
-                            <th scope="col">Notificação</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,11 +41,7 @@
                             </td>
                             <td>
                                 <div class="product_count">
-                                    <h5>enviado</h5>
-                            </td>
-                            <td>
-                                <div class="product_count">
-                                    <h5><a href="#">notificado </a></h5>
+                                    <h5>entregue</h5>
                             </td>
                         </tr>
                         <!--linha 2-->
@@ -75,11 +70,7 @@
                             </td>
                             <td>
                                 <div class="product_count">
-                                    <h5>enviado</h5>
-                            </td>
-                            <td>
-                                <div class="product_count">
-                                    <h5><a href="#">notificado </a></h5>
+                                    <h5>entregue</h5>
                             </td>
                         </tr>
                         <!--linha 3-->
@@ -108,11 +99,7 @@
                             </td>
                             <td>
                                 <div class="product_count">
-                                    <h5>enviado</h5>
-                            </td>
-                            <td>
-                                <div class="product_count">
-                                    <h5><a href="#">notificado </a></h5>
+                                    <h5>entregue</h5>
                             </td>
                         </tr>
                     </tbody>
@@ -130,4 +117,3 @@
 <!--fim form cadastro pag detalhes do produto-->
 </div>
 </div>
-

@@ -134,6 +134,7 @@ class FormatRules {
     {
     return is_string($str);
 
+
 	}
 
 /**
@@ -364,10 +365,8 @@ public function valid_date(string $str = null, string $format = null): bool {
 }
 
 # metodo para testar CPF no validation do codeigniter 4
-function valid_cpf($cpf) : bool{
-    $CI = & get_instance();
 
-    $CI->form_validation->set_message('valid_cpf', 'O %s informado não é válido.');
+function valid_cpf($cpf): bool {
 
     $cpf = preg_replace('/[^0-9]/', '', $cpf);
 
@@ -377,6 +376,20 @@ function valid_cpf($cpf) : bool{
 
     # pegando os digitos para calculo
     $digitosCalculo = substr($cpf, 0, 9);
+
+    if (
+            $cpf == '00000000000' ||
+            $cpf == '11111111111' ||
+            $cpf == '22222222222' ||
+            $cpf == '33333333333' ||
+            $cpf == '44444444444' ||
+            $cpf == '55555555555' ||
+            $cpf == '66666666666' ||
+            $cpf == '77777777777' ||
+            $cpf == '88888888888' ||
+            $cpf == '99999999999') {
+        return FALSE;
+    }
 
     # calculo dos verificadores
     for ($j = 10; $j <= 11; $j++) {

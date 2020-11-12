@@ -32,7 +32,7 @@ class ClienteController extends Controller {
             'cpf' => 'required|min_length[11]|max_length[14]|valid_cpf',
             'data_nasc' => 'required|min_length[8]|max_length[10]',
             'telefone' => 'required|min_length[8]|max_length[15]',
-            'email' => 'required|min_length[8]|max_length[40]',
+            'email' => 'required|valid_email|max_length[50]',
             'senha' => 'required|min_length[8]|max_length[16]',
             'endereco' => 'required|min_length[5]|max_length[40]',
             'complemento' => 'max_length[40]',
@@ -123,6 +123,17 @@ class ClienteController extends Controller {
         echo view("marketplace/header");
         echo view("loja/aviso-confirmacao-cadastro");
         echo view("marketplace/footer");
+    }
+
+    public function conta() {
+        if ($this->clienteLogged()) {
+            echo view("marketplace/header");
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('loja/tela-perfil-cliente');
+            echo view("marketplace/footer");
+        } else {
+            redirect()->to(site_url('home/login'));
+        }
     }
 
     public function sacola() {

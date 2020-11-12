@@ -4,7 +4,7 @@
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
-                <a class="navbar-brand logo_h" href="<?php echo base_url("dashboard/index") ?>"><img src="<?php echo base_url("assets/img/logo.png"); ?>" alt=""></a>
+                <a class="navbar-brand logo_h" href="<?php echo base_url("home/index") ?>"><img src="<?php echo base_url("assets/img/logo.png"); ?>" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -14,31 +14,26 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="<?php echo base_url("home/index") ?>">Pagina Inicial</a></li>
-                        <li class="nav-item submenu dropdown">
-                            <a href="<?php echo base_url('dashboard/index'); ?>" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Loja</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/catalogo');?>">Catalogo</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/enderecoEnvio'); ?>">Endereços para envio</a></li> 
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/sacola'); ?>">Sacola</a></li>
-                            </ul>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/catalogo'); ?>">Catalogo</a></li>
                         </li>
 
                         <li class="nav-item submenu dropdown">
                             <?php if (!session()->has('email')) { ?>
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   aria-expanded="false">Registra-se/Login</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/login'); ?>">Login</a></li>
-                                    <!-- <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li> -->
-                                </ul>
+                               <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/login'); ?>">Registra-se/login</a></li>
                             <?php } else { ?>
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                    aria-expanded="false"> Conta </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/logout'); ?>">Logout</a></li>
-                                    <!-- <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li> -->
+                                
+                               <ul class="dropdown-menu">
+                                   <?php if (session()->get('tipo') == 'adm') :?>
+                                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard/gerenciarProdutos'); ?>">Dashboard</a></li>
+                                    <?php endif;?>
+                                    <?php if (session()->get('tipo') == 'cli') :?>
+                                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('clienteController/Conta'); ?>">Minha conta</a></li>
+                                    <?php endif;?> 
+                                   <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/logout'); ?>">Logout</a></li>
                                 </ul>
+                               
                             <?php } ?>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/contato'); ?>">Contato</a></li>

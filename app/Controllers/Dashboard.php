@@ -40,6 +40,7 @@ class Dashboard extends Controller {
             helper('form');
             echo view("marketplace/header");
             echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('templates/marketplace/sections/menuLateralAdm');
             echo view("loja/cadastrar-produtos", $data);
             echo view("marketplace/footer");
         } else {
@@ -54,6 +55,9 @@ class Dashboard extends Controller {
         if ($this->admLogged()) {
 
             echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('templates/marketplace/sections/menuLateralAdm');
+            echo view('templates/marketplace/sections/menuGerenciarEnvios');
             echo view('loja/envios-adm');
             echo view('marketplace/footer');
         } else {
@@ -61,6 +65,51 @@ class Dashboard extends Controller {
         }
     }
 
+    public function pedidosParaEnvio() {
+
+        if ($this->admLogged()) {
+
+            echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('templates/marketplace/sections/menuLateralAdm');
+            echo view('templates/marketplace/sections/menuGerenciarEnvios');
+            echo view('loja/verificar-pedidos-para-envios');
+            echo view('marketplace/footer');
+        } else {
+            return redirect()->to(site_url('home'));
+        }
+    }
+    
+    public function pedidosEnviados() {
+
+        if ($this->admLogged()) {
+
+            echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('templates/marketplace/sections/menuLateralAdm');
+            echo view('templates/marketplace/sections/menuGerenciarEnvios');
+            echo view('loja/pedidos-enviados');
+            echo view('marketplace/footer');
+        } else {
+            return redirect()->to(site_url('home'));
+        }
+    }
+    
+     public function pedidosEntregues() {
+
+        if ($this->admLogged()) {
+
+            echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('templates/marketplace/sections/menuLateralAdm');
+            echo view('templates/marketplace/sections/menuGerenciarEnvios');
+            echo view('loja/envios-entregues');
+            echo view('marketplace/footer');
+        } else {
+            return redirect()->to(site_url('home'));
+        }
+    }
+    
     public function buscarProdutos() {
         if ($this->admLogged()) {
             helper('form');
@@ -74,6 +123,8 @@ class Dashboard extends Controller {
             $query = $builder->where(['nome' => $termo]);
 
             echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('templates/marketplace/sections/menuLateralAdm');
             echo view('loja/listar-buscar-calcado-adm');
             echo view('marketplace/footer');
         } else {
@@ -134,6 +185,8 @@ class Dashboard extends Controller {
     public function gerenciarProdutos() {
         if ($this->admLogged()) {
             echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('templates/marketplace/sections/menuLateralAdm');
             echo view('loja/gerenciar-produtos');
             echo view('marketplace/footer');
         } else {
@@ -150,6 +203,9 @@ class Dashboard extends Controller {
             ];
 
             echo view('marketplace/header');
+            echo view('templates/marketplace/sections/menuPrincipalSuperior');
+            echo view('templates/marketplace/sections/menuLateralAdm');
+            echo view('templates/marketplace/sections/menuGerenciarCalcados');
             echo view('loja/listar-produtos-cadastrados', $data);
             echo view('marketplace/footer');
         } else {
@@ -216,10 +272,16 @@ class Dashboard extends Controller {
                     'url_img' => 'public/img/product/' . $newName
                 ]);
 
-                echo view('marketplace/header');
+                $model = new Categoria();
+
+                $data = [
+                    'categoria' => $model->search()
+                ];
+                echo view("marketplace/header");
                 echo view('templates/marketplace/sections/menuPrincipalSuperior');
-                echo view('loja/cadastrar-produtos', $listaCategorias);
-                echo view('marketplace/footer');
+                echo view('templates/marketplace/sections/menuLateralAdm');
+                echo view("loja/cadastrar-produtos", $data);
+                echo view("marketplace/footer");
                 echo view('templates/dashboard/ModalAlertCadastroConcluido');
             } else {
                 $this->cadastroCalcado();
@@ -298,54 +360,47 @@ class Dashboard extends Controller {
     }
 
     # metodos para categoria se encontram aqui
-
-    public function searchCategoria() {
-        if ($this->admLogged()) {
-            $model = new Categoria();
-
-            $data = [
-                'categoria' => $model->search()
-            ];
-
-            //views para exibir categorias entram aqui;
-            echo view('templates/header');
-            echo view('templates/dashboard/Sidemenu');
-            echo view('dashboard/searchCategoria', $data);
-            echo view('templates/footer');
-        } else {
-            return redirect()->to(site_url('home'));
-        }
-    }
-
-    public function cadastroCategoria() {
-
-        if ($this->admLogged()) {
-
-            helper('form');
-            echo view('templates/header');
-            echo view('templates/dashboard/Sidemenu');
-            echo view('dashboard/CreateCategoria');
-            echo view('templates/footer');
-        } else {
-            return redirect()->to(site_url('home'));
-        }
-    }
-
-    public function updateCategoria($id = null) {
-
-        if ($this->admLogged()) {
-            $model = new Categoria();
-
-            $data['categoria'] = $model->search($id);
-
-            echo view('templates/header');
-            echo view('templates/dashboard/Sidemenu');
-            echo view('dashboard/CreateCategoria', $data);
-            echo view('templates/footer');
-        } else {
-            return redirect()->to(site_url('home'));
-        }
-    }
+    # DEPRECIADO
+    # public function searchCategoria() {
+    #   if ($this->admLogged()) {
+    #        $model = new Categoria();
+    #        $data = [
+    #            'categoria' => $model->search()
+    #       ];
+    //views para exibir categorias entram aqui;
+    #        echo view('templates/header');
+    #        echo view('templates/dashboard/Sidemenu');
+    #        echo view('dashboard/searchCategoria', $data);
+    #        echo view('templates/footer');
+    #    } else {
+    #        return redirect()->to(site_url('home'));
+    #    }
+    #}
+    # DEPRECIADO
+    # public function cadastroCategoria() {
+    #    if ($this->admLogged()) {
+    #        helper('form');
+    #        echo view('templates/header');
+    #        echo view('templates/dashboard/Sidemenu');
+    #        echo view('dashboard/CreateCategoria');
+    #        echo view('templates/footer');
+    #    } else {
+    #        return redirect()->to(site_url('home'));
+    #    }
+    #}
+    # DEPRECIADO
+    #public function updateCategoria($id = null) {
+    #   if ($this->admLogged()) {
+    #        $model = new Categoria();
+    #        $data['categoria'] = $model->search($id);
+    #        echo view('templates/header');
+    #        echo view('templates/dashboard/Sidemenu');
+    #        echo view('dashboard/CreateCategoria', $data);
+    #        echo view('templates/footer');
+    #    } else {
+    #        return redirect()->to(site_url('home'));
+    #    }
+    #}
 
     public function saveCategoria() {
         helper('form');

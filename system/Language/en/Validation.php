@@ -61,6 +61,7 @@ return [
    'valid_ip'              => 'The {field} field must contain a valid IP.',
    'valid_url'             => 'The {field} field must contain a valid URL.',
    'valid_date'            => 'The {field} field must contain a valid date.',
+   'valid_cpf'             => 'the {field} fiels must contain a valid CPF',
 
 	// Credit Cards
    'valid_cc_num'          => '{field} does not appear to be a valid credit card number.',
